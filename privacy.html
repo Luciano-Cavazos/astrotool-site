@@ -7,47 +7,106 @@
   <style>
     body { font-family: -apple-system, sans-serif; max-width: 680px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.7; }
     h1 { font-size: 1.8rem; margin-bottom: 0.2em; }
-    h2 { font-size: 1.1rem; margin-top: 2em; }
+    h2 { font-size: 1.1rem; margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 4px; }
     p, li { font-size: 0.97rem; color: #333; }
     a { color: #0066cc; }
+    table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.93rem; }
+    th { text-align: left; border-bottom: 2px solid #ddd; padding: 6px 8px; }
+    td { padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; }
   </style>
 </head>
 <body>
+
   <h1>AstroTool Privacy Policy</h1>
   <p><em>Last updated: May 22, 2026</em></p>
 
-  <p>AstroTool is a personal astronomy and astrophotography planning app. Your privacy is important to us. This policy explains what data the app accesses and how it is used.</p>
+  <p>AstroTool is an astronomy planning and session logging app for iOS.
+  This policy explains exactly what data the app accesses, what it stores,
+  and what — if anything — leaves your device.</p>
+
+  <h2>What AstroTool Does</h2>
+  <p>AstroTool helps you plan observing sessions, log your captures, manage your
+  equipment, browse a catalog of 284 deep sky objects, and track upcoming sky
+  events. All astronomical calculations (moon phase, twilight times, object
+  altitude, rise and set times) run entirely on your device using standard
+  algorithms. No internet connection is required for any of this.</p>
 
   <h2>Data We Access</h2>
 
-  <h2>Location</h2>
-  <p>AstroTool requests access to your device's location while the app is in use. This is used exclusively to calculate the positions of stars, planets, and other sky objects as seen from your location. Your location is never transmitted, stored on any server, or shared with any third party. It is used only locally on your device in real time.</p>
+  <table>
+    <tr>
+      <th>Data</th>
+      <th>Why</th>
+      <th>Leaves your device?</th>
+    </tr>
+    <tr>
+      <td><strong>Location</strong> (while app is open)</td>
+      <td>Used on-device to calculate twilight times, object altitudes, moon rise/set, and compass heading for your specific position on Earth.</td>
+      <td>No — never transmitted anywhere.</td>
+    </tr>
+    <tr>
+      <td><strong>Device motion &amp; compass</strong></td>
+      <td>Used to display a live compass heading in the planner. Processed locally in real time.</td>
+      <td>No — never transmitted anywhere.</td>
+    </tr>
+    <tr>
+      <td><strong>Object images</strong></td>
+      <td>When you view a deep sky object, AstroTool fetches a thumbnail image from Wikimedia Commons (a public, non-profit media repository). The request contains no personal data — only the name of the image file. Images are cached on your device for future offline use.</td>
+      <td>The image filename only, sent to Wikimedia Commons' public CDN. No user data is included.</td>
+    </tr>
+  </table>
 
-  <h2>Device Motion</h2>
-  <p>AstroTool uses your device's gyroscope and motion sensors to orient the sky map based on where you are pointing your phone. Motion data is processed locally on your device and is never transmitted or stored.</p>
-
-  <h2>Observation Logs</h2>
-  <p>Any observing sessions, notes, or equipment records you create within the app are stored locally on your device. This data never leaves your device and is not accessible to us or any third party.</p>
+  <h2>Data You Create</h2>
+  <p>AstroTool stores the following on your device only, using Apple's SwiftData framework (local SQLite database):</p>
+  <ul>
+    <li>Observation sessions — date, location name, Bortle scale, seeing, transparency, notes</li>
+    <li>Logged objects — target name, exposure details, sub count, gain, filter, equipment, rating, notes</li>
+    <li>Target schedule items — planned captures with times and parameters</li>
+    <li>Equipment library — telescopes, cameras, mounts, eyepieces, filters</li>
+    <li>Catalog favorites</li>
+    <li>Session plan checklists</li>
+  </ul>
+  <p>None of this data is transmitted to us or any third party. It is never uploaded to a server, synced to a cloud service, or shared in any way.</p>
 
   <h2>What We Do Not Collect</h2>
   <ul>
-    <li>No personal information (name, email, account)</li>
+    <li>No personal information (name, email, phone number)</li>
+    <li>No account or sign-in</li>
     <li>No analytics or usage tracking</li>
     <li>No advertising identifiers</li>
-    <li>No crash reporting sent to external services</li>
-    <li>No data is sold, shared, or transmitted anywhere</li>
+    <li>No crash reports sent to external services</li>
+    <li>No data sold, rented, or shared with any third party</li>
   </ul>
 
   <h2>Third-Party Services</h2>
-  <p>AstroTool contains no third-party SDKs, analytics libraries, or advertising frameworks.</p>
+  <p>The only external service AstroTool communicates with is
+  <a href="https://commons.wikimedia.org">Wikimedia Commons</a>, solely to
+  fetch publicly available deep sky object images. Wikimedia's own privacy
+  policy applies to those requests. AstroTool contains no third-party
+  analytics, advertising, or crash reporting SDKs.</p>
+
+  <h2>Image Credits</h2>
+  <p>Deep sky object images are sourced from Wikimedia Commons and are credited
+  to their respective creators — including NASA, ESA, Hubble Space Telescope,
+  ESO, JWST, and individual astrophotographers — as displayed in the image
+  credit overlay within the app. Images are used under their respective public
+  domain or Creative Commons licenses.</p>
 
   <h2>Children's Privacy</h2>
-  <p>AstroTool does not knowingly collect any data from anyone, including children under 13.</p>
+  <p>AstroTool does not collect any personal information from anyone, including
+  children under 13.</p>
+
+  <h2>Data Deletion</h2>
+  <p>All data created in AstroTool is stored locally on your device. You can
+  delete it at any time by deleting the app.</p>
 
   <h2>Changes to This Policy</h2>
-  <p>If this policy changes, the updated version will be posted at this URL with a revised date.</p>
+  <p>If this policy is updated, the revised version will be posted at this URL
+  with a new date at the top.</p>
 
   <h2>Contact</h2>
-  <p>Questions? Email us at <a href="mailto:info@astromanual.com">info@astromanual.com</a>.</p>
+  <p>Questions about this policy? Email:
+  <a href="mailto:luciano.cavazos@icloud.com">luciano.cavazos@icloud.com</a></p>
+
 </body>
 </html>
