@@ -18,7 +18,7 @@
 <body>
 
   <h1>AstroTool Privacy Policy</h1>
-  <p><em>Last updated: May 22, 2026</em></p>
+  <p><em>Last updated: May 23, 2026</em></p>
 
   <p>AstroTool is an astronomy planning and session logging app for iOS.
   This policy explains exactly what data the app accesses, what it stores,
@@ -26,10 +26,11 @@
 
   <h2>What AstroTool Does</h2>
   <p>AstroTool helps you plan observing sessions, log your captures, manage your
-  equipment, browse a catalog of 284 deep sky objects, and track upcoming sky
-  events. All astronomical calculations (moon phase, twilight times, object
-  altitude, rise and set times) run entirely on your device using standard
-  algorithms. No internet connection is required for any of this.</p>
+  equipment, browse a catalog of 284 deep sky objects and 63 double stars,
+  and track upcoming sky events. All astronomical calculations (moon phase,
+  twilight times, object altitude, rise and set times, planet positions) run
+  entirely on your device using standard algorithms. No internet connection
+  is required for any of this.</p>
 
   <h2>Data We Access</h2>
 
@@ -41,13 +42,18 @@
     </tr>
     <tr>
       <td><strong>Location</strong> (while app is open)</td>
-      <td>Used on-device to calculate twilight times, object altitudes, moon rise/set, and compass heading for your specific position on Earth.</td>
+      <td>Used on-device to calculate twilight times, object altitudes, moon rise/set, and rise/set times for your specific position on Earth.</td>
       <td>No — never transmitted anywhere.</td>
     </tr>
     <tr>
       <td><strong>Device motion &amp; compass</strong></td>
-      <td>Used to display a live compass heading in the planner. Processed locally in real time.</td>
+      <td>Used by the Sky Map to orient the view based on where you point your phone, and to display a live compass heading. Processed locally in real time.</td>
       <td>No — never transmitted anywhere.</td>
+    </tr>
+    <tr>
+      <td><strong>Notifications</strong> (optional)</td>
+      <td>If you enable alerts on the Events screen, the app schedules local notifications on your device for upcoming astronomical twilight and meteor shower peaks. All scheduling is done locally; no server is involved.</td>
+      <td>No — local notifications only, no remote push.</td>
     </tr>
     <tr>
       <td><strong>Object images</strong></td>
@@ -66,7 +72,25 @@
     <li>Catalog favorites</li>
     <li>Session plan checklists</li>
   </ul>
-  <p>None of this data is transmitted to us or any third party. It is never uploaded to a server, synced to a cloud service, or shared in any way.</p>
+  <p>None of this data is transmitted to us or any third party. It is never uploaded to a server, synced to a cloud service, or shared in any way unless you explicitly choose to do so (see "Sharing &amp; Siri" below).</p>
+
+  <h2>Sharing &amp; Siri</h2>
+  <p>AstroTool integrates with a few iOS system features. Each is user-initiated
+  and processes data on-device:</p>
+  <ul>
+    <li><strong>Session sharing.</strong> The share button on a session detail
+        produces a plain-text summary of that session and hands it to the iOS
+        share sheet. You choose where it goes (Messages, Mail, Notes, etc.).
+        AstroTool does not transmit anything itself.</li>
+    <li><strong>Clipboard.</strong> The copy buttons on the catalog detail view
+        and calculator (coordinates, field of view, exposure values) write the
+        selected text to your device's clipboard so you can paste it into
+        another app.</li>
+    <li><strong>Siri &amp; Shortcuts.</strong> AstroTool exposes two on-device
+        Siri shortcuts: "Get tonight's targets" and "Get twilight times."
+        Both compute their answers entirely on your device. Apple's Siri
+        handles the voice recognition itself, under Apple's privacy policy.</li>
+  </ul>
 
   <h2>What We Do Not Collect</h2>
   <ul>
