@@ -16,7 +16,7 @@
 </head>
 <body>
   <h1>AstroTool Support</h1>
-  <p class="tag">Astrophotography Planning for iPhone</p>
+  <p class="tag">Astrophotography Planning &amp; Session Logging for iPhone and iPad</p>
 
   <h2>Contact</h2>
   <p>For questions, bug reports, or feature requests, email:<br>
@@ -27,22 +27,49 @@
   <h2>Frequently Asked Questions</h2>
 
   <h2>Why are my times wrong?</h2>
-  <p>AstroTool uses your device's GPS location to calculate sunrise, sunset, and twilight times. Make sure Location Services are enabled for AstroTool in <strong>Settings → Privacy → Location Services</strong>. Times are displayed in your device's local timezone.</p>
+  <p>AstroTool uses your device's GPS location to calculate sunrise, sunset, and twilight times. Make sure Location Services are enabled for AstroTool in <strong>Settings → Privacy &amp; Security → Location Services</strong>. Times are displayed in your device's local timezone.</p>
 
   <h2>Why does it show San Francisco as my location?</h2>
-  <p>That's the default fallback when location access hasn't been granted. Enable location access in Settings and reopen the app.</p>
+  <p>That's the default fallback when location access hasn't been granted or the first GPS fix hasn't arrived yet. Enable location access in Settings, then reopen the app. Once a fix comes in, your real coordinates replace the fallback automatically.</p>
 
   <h2>How are the Best Targets scored?</h2>
-  <p>Each object is scored using a combination of its current altitude (60% weight) and angular separation from the Moon (40% weight). Higher scores mean better imaging conditions for that night.</p>
+  <p>Each object is scored using a combination of its peak altitude during the dark window (60% weight) and angular separation from the Moon (40% weight). Higher scores mean better imaging conditions for that night.</p>
 
   <h2>How many objects are in the catalog?</h2>
-  <p>AstroTool includes 284 deep sky objects spanning the Messier, Caldwell, NGC, and IC catalogs.</p>
+  <p>AstroTool includes 284 deep sky objects spanning the Messier, Caldwell, NGC, and IC catalogs, plus 63 double stars with separation and position-angle data.</p>
 
   <h2>Does the app require an internet connection?</h2>
-  <p>No. All astronomical calculations are performed on-device. No internet connection is required.</p>
+  <p>No. All astronomical calculations are performed on-device. The only network requests are optional thumbnail images for deep sky object detail pages, fetched from Wikimedia Commons and cached for offline use afterwards.</p>
 
-  <h2>The Sky Map isn't working — is that a bug?</h2>
-  <p>The Sky Map feature is currently under active development and will be available in a future update.</p>
+  <h2>How do I use the Sky Map?</h2>
+  <p>Hold your phone up and point it at the sky — the map orients itself using your device's motion sensors and compass. Pinch to zoom, drag to pan manually (tap the locate button in the toolbar to resume live tracking). Tap any star, planet, or deep sky object to see its name and quickly schedule a capture, log it, or favorite it.</p>
+
+  <h2>How do I schedule a target?</h2>
+  <p>From the Planner, the Catalog object detail, or the Sky Map, tap "Schedule Capture" (or the calendar+plus icon). Pick a start/end time and optionally fill in planned exposure, sub count, gain, filter, and equipment. Scheduled targets appear on the Planner for that night and on the Catalog under the "Scheduled" filter.</p>
+
+  <h2>How do I log a capture?</h2>
+  <p>Either tap the pencil icon next to a scheduled target on the Planner, or open the Sessions tab and create a new session. From a session detail you can add any number of objects with full exposure metadata. If you logged from a scheduled target, the schedule item is automatically marked done.</p>
+
+  <h2>Can I share a session report?</h2>
+  <p>Yes. Open any session and tap the share button in the top-left of the toolbar. AstroTool produces a plain-text summary — date, location, conditions, each logged object with exposure details — and hands it to the iOS share sheet so you can send it via Messages, Mail, Notes, or anywhere else.</p>
+
+  <h2>Will I get notifications for meteor showers?</h2>
+  <p>Yes, if you opt in. Open the Sky Events tab and tap the bell icon in the top right. After granting notification permission, AstroTool schedules local alerts 24 hours before each upcoming meteor shower peak, and 30 minutes before tonight's astronomical twilight. All notifications are scheduled on-device — nothing is sent to a server.</p>
+
+  <h2>How do I use the Siri shortcuts?</h2>
+  <p>AstroTool registers two Siri shortcuts automatically. Say "Hey Siri, what's visible tonight in AstroTool" or "Hey Siri, when does it get dark in AstroTool" — Siri will return the top three targets ranked by altitude and moon separation, or tonight's astronomical dusk and dawn times. Both also appear in the Shortcuts app under AstroTool.</p>
+
+  <h2>Can I track my equipment?</h2>
+  <p>Yes. From the Sessions tab, tap "Equipment" in the top-left to add telescopes, cameras, mounts, eyepieces, and filters with full optical and sensor specs. Once added, equipment appears as quick-fill chips in the Calculator (focal length, sensor size, pixel pitch) and as a picker on every capture log.</p>
+
+  <h2>How do I copy coordinates or calculator results?</h2>
+  <p>On a catalog object detail, tap the copy icon in the top-left toolbar to put the RA/Dec on your clipboard. In the Calculator, each card has a "Copy" button that writes the formatted result (FOV, exposure times) to the clipboard for pasting into a planetarium app or capture software.</p>
+
+  <h2>Why is my integration time showing as zero?</h2>
+  <p>Integration is computed from exposure seconds × sub count. If you logged an object without filling in both fields it won't contribute to the session's total. Open the object from the session detail to fill them in.</p>
+
+  <h2>How do I see the welcome screen again?</h2>
+  <p>Delete and reinstall the app. The onboarding flow is shown once on first launch and remembered after that.</p>
 
   <hr>
 
