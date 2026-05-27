@@ -1,80 +1,432 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AstroTool Support</title>
-  <style>
-    body { font-family: -apple-system, sans-serif; max-width: 680px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.7; }
-    h1 { font-size: 2rem; margin-bottom: 6px; }
-    h2 { font-size: 1.2rem; margin-top: 40px; margin-bottom: 8px; }
-    .tag { font-size: 0.85rem; color: #666; margin-bottom: 40px; }
-    a { color: #007aff; }
-    hr { border: none; border-top: 1px solid #eee; margin: 40px 0; }
-    footer { font-size: 0.85rem; color: #999; margin-top: 60px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — AstroTool</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    background: #07030f;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1.5px 1.5px at 8%  12%, rgba(255,255,255,0.55), transparent),
+      radial-gradient(1px   1px   at 23% 5%,  rgba(255,255,255,0.35), transparent),
+      radial-gradient(2px   2px   at 41% 18%, rgba(255,255,255,0.45), transparent),
+      radial-gradient(1px   1px   at 67% 8%,  rgba(255,255,255,0.30), transparent),
+      radial-gradient(1.5px 1.5px at 83% 14%, rgba(255,255,255,0.50), transparent),
+      radial-gradient(1px   1px   at 15% 35%, rgba(255,255,255,0.20), transparent),
+      radial-gradient(1.5px 1.5px at 55% 28%, rgba(255,255,255,0.40), transparent),
+      radial-gradient(1px   1px   at 77% 40%, rgba(255,255,255,0.22), transparent),
+      radial-gradient(1px   1px   at 32% 55%, rgba(255,255,255,0.18), transparent),
+      radial-gradient(1.5px 1.5px at 89% 52%, rgba(255,255,255,0.32), transparent),
+      radial-gradient(1px   1px   at 71% 78%, rgba(255,255,255,0.38), transparent),
+      radial-gradient(1px   1px   at 96% 85%, rgba(255,255,255,0.22), transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    position: relative;
+    z-index: 1;
+    border-bottom: 0.5px solid rgba(0,255,255,0.15);
+    padding: 32px 24px 28px;
+    background: linear-gradient(180deg, rgba(0,40,80,0.35) 0%, transparent 100%);
+    text-align: center;
+  }
+
+  .wordmark {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(0,255,255,0.7);
+    margin-bottom: 10px;
+  }
+
+  header h1 {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+
+  header p {
+    margin-top: 8px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.38);
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+
+  /* Contact card */
+  .contact-card {
+    background: rgba(0,255,255,0.06);
+    border: 0.5px solid rgba(0,255,255,0.2);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 52px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .contact-card-text h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .contact-card-text p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin: 0;
+  }
+
+  .contact-btn {
+    margin-left: auto;
+    background: rgba(0,255,255,0.12);
+    border: 0.5px solid rgba(0,255,255,0.35);
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0,255,255,0.9);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+
+  .contact-btn:hover {
+    background: rgba(0,255,255,0.2);
+    border-bottom: 0.5px solid rgba(0,255,255,0.35);
+  }
+
+  /* Feature section */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(0,255,255,0.5);
+    margin-bottom: 16px;
+  }
+
+  /* Feature grid */
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 52px;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.04);
+    border: 0.5px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px 20px;
+  }
+
+  .feature-card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .feature-icon {
+    font-size: 20px;
+  }
+
+  .feature-card h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .badge {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+
+  .badge-free {
+    background: rgba(74,222,128,0.12);
+    color: rgba(74,222,128,0.9);
+    border: 0.5px solid rgba(74,222,128,0.25);
+  }
+
+  .badge-premium {
+    background: rgba(0,255,255,0.10);
+    color: rgba(0,255,255,0.75);
+    border: 0.5px solid rgba(0,255,255,0.2);
+  }
+
+  .feature-card p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin-bottom: 52px;
+  }
+
+  details {
+    border-bottom: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  details:first-child {
+    border-top: 0.5px solid rgba(255,255,255,0.07);
+  }
+
+  summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 4px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    list-style: none;
+    gap: 12px;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  summary::after {
+    content: '+';
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(0,255,255,0.6);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+
+  details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 4px 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.65;
+  }
+
+  .faq-answer a {
+    color: rgba(0,255,255,0.75);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,255,255,0.25);
+  }
+
+  section { margin-bottom: 16px; }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 24px;
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    color: rgba(255,255,255,0.25);
+  }
+
+  footer a {
+    color: rgba(0,255,255,0.5);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,255,255,0.2);
+  }
+</style>
 </head>
 <body>
-  <h1>AstroTool Support</h1>
-  <p class="tag">Astrophotography Planning &amp; Session Logging for iPhone and iPad</p>
 
-  <h2>Contact</h2>
-  <p>For questions, bug reports, or feature requests, email:<br>
-  <a href="mailto:info@theastromanual.com">info@theastromanual.com</a></p>
+<header>
+  <div class="wordmark">AstroTool</div>
+  <h1>Support</h1>
+  <p>We're here to help — usually respond within 24 hours</p>
+</header>
 
-  <hr>
+<main>
 
-  <h2>Frequently Asked Questions</h2>
+  <!-- Contact -->
+  <div class="contact-card">
+    <div>
+      <div style="font-size:28px; margin-bottom:4px;">✉️</div>
+    </div>
+    <div class="contact-card-text">
+      <h3>Email Support</h3>
+      <p>Questions, bug reports, or feature requests</p>
+    </div>
+    <a href="mailto:info@theastromanual.com" class="contact-btn">Get in Touch</a>
+  </div>
 
-  <h2>Why are my times wrong?</h2>
-  <p>AstroTool uses your device's GPS location to calculate sunrise, sunset, and twilight times. Make sure Location Services are enabled for AstroTool in <strong>Settings → Privacy &amp; Security → Location Services</strong>. Times are displayed in your device's local timezone.</p>
+  <!-- Features -->
+  <div class="section-label">What's in the App</div>
+  <div class="feature-grid">
 
-  <h2>Why does it show San Francisco as my location?</h2>
-  <p>That's the default fallback when location access hasn't been granted or the first GPS fix hasn't arrived yet. Enable location access in Settings, then reopen the app. Once a fix comes in, your real coordinates replace the fallback automatically.</p>
+    <div class="feature-card">
+      <div class="feature-card-header">
+        <span class="feature-icon">🌐</span>
+        <h3>Sky Map</h3>
+        <span class="badge badge-free">FREE</span>
+      </div>
+      <p>Live star chart with constellation lines, Milky Way, ecliptic, all planets, and tap-to-identify.</p>
+    </div>
 
-  <h2>How are the Best Targets scored?</h2>
-  <p>Each object is scored using a combination of its peak altitude during the dark window (60% weight) and angular separation from the Moon (40% weight). Higher scores mean better imaging conditions for that night.</p>
+    <div class="feature-card">
+      <div class="feature-card-header">
+        <span class="feature-icon">📚</span>
+        <h3>Catalog</h3>
+        <span class="badge badge-free">FREE</span>
+      </div>
+      <p>Full Messier catalog with search, filters, visibility charts, and capture history per object.</p>
+    </div>
 
-  <h2>How many objects are in the catalog?</h2>
-  <p>AstroTool includes 284 deep sky objects spanning the Messier, Caldwell, NGC, and IC catalogs, plus 63 double stars with separation and position-angle data.</p>
+    <div class="feature-card">
+      <div class="feature-card-header">
+        <span class="feature-icon">🌙</span>
+        <h3>Planner</h3>
+        <span class="badge badge-premium">PREMIUM</span>
+      </div>
+      <p>Twilight schedule, moon phase, live planets, Jupiter's moons, and targets ranked for tonight.</p>
+    </div>
 
-  <h2>Does the app require an internet connection?</h2>
-  <p>No. All astronomical calculations are performed on-device. The only network requests are optional thumbnail images for deep sky object detail pages, fetched from Wikimedia Commons and cached for offline use afterwards.</p>
+    <div class="feature-card">
+      <div class="feature-card-header">
+        <span class="feature-icon">📐</span>
+        <h3>Calculator</h3>
+        <span class="badge badge-premium">PREMIUM</span>
+      </div>
+      <p>FOV for your exact sensor and scope, exposure limits, and integration time with signal quality.</p>
+    </div>
 
-  <h2>How do I use the Sky Map?</h2>
-  <p>Hold your phone up and point it at the sky — the map orients itself using your device's motion sensors and compass. Pinch to zoom, drag to pan manually (tap the locate button in the toolbar to resume live tracking). Tap any star, planet, or deep sky object to see its name and quickly schedule a capture, log it, or favorite it.</p>
+    <div class="feature-card">
+      <div class="feature-card-header">
+        <span class="feature-icon">📋</span>
+        <h3>Session Logger</h3>
+        <span class="badge badge-premium">PREMIUM</span>
+      </div>
+      <p>Log sessions with sky conditions, captures with exposure details, and manage your equipment.</p>
+    </div>
 
-  <h2>How do I schedule a target?</h2>
-  <p>From the Planner, the Catalog object detail, or the Sky Map, tap "Schedule Capture" (or the calendar+plus icon). Pick a start/end time and optionally fill in planned exposure, sub count, gain, filter, and equipment. Scheduled targets appear on the Planner for that night and on the Catalog under the "Scheduled" filter.</p>
+    <div class="feature-card">
+      <div class="feature-card-header">
+        <span class="feature-icon">✨</span>
+        <h3>Events & Alerts</h3>
+        <span class="badge badge-premium">PREMIUM</span>
+      </div>
+      <p>Meteor showers, oppositions, conjunctions, and lunar phases with notification support.</p>
+    </div>
 
-  <h2>How do I log a capture?</h2>
-  <p>Either tap the pencil icon next to a scheduled target on the Planner, or open the Sessions tab and create a new session. From a session detail you can add any number of objects with full exposure metadata. If you logged from a scheduled target, the schedule item is automatically marked done.</p>
+  </div>
 
-  <h2>Can I share a session report?</h2>
-  <p>Yes. Open any session and tap the share button in the top-left of the toolbar. AstroTool produces a plain-text summary — date, location, conditions, each logged object with exposure details — and hands it to the iOS share sheet so you can send it via Messages, Mail, Notes, or anywhere else.</p>
+  <!-- FAQ -->
+  <div class="section-label">Frequently Asked Questions</div>
+  <div class="faq-list">
 
-  <h2>Will I get notifications for meteor showers?</h2>
-  <p>Yes, if you opt in. Open the Sky Events tab and tap the bell icon in the top right. After granting notification permission, AstroTool schedules local alerts 24 hours before each upcoming meteor shower peak, and 30 minutes before tonight's astronomical twilight. All notifications are scheduled on-device — nothing is sent to a server.</p>
+    <details>
+      <summary>How do I restore my purchase on a new device?</summary>
+      <div class="faq-answer">
+        Open AstroTool and tap the <strong>⋯ button</strong> in the top-right corner of the Sky Map. Then tap <strong>Restore Purchase</strong>. Make sure you're signed into the same Apple ID you used when you originally purchased. If the restore doesn't work, contact us at <a href="mailto:info@theastromanual.com">info@theastromanual.com</a> with your Apple ID email and we'll help sort it out.
+      </div>
+    </details>
 
-  <h2>How do I use the Siri shortcuts?</h2>
-  <p>AstroTool registers two Siri shortcuts automatically. Say "Hey Siri, what's visible tonight in AstroTool" or "Hey Siri, when does it get dark in AstroTool" — Siri will return the top three targets ranked by altitude and moon separation, or tonight's astronomical dusk and dawn times. Both also appear in the Shortcuts app under AstroTool.</p>
+    <details>
+      <summary>Is AstroTool a subscription?</summary>
+      <div class="faq-answer">
+        No. AstroTool Premium is a <strong>one-time purchase</strong>. You pay once and own the premium features forever — including all future updates. There are no recurring fees, no annual renewals, and no subscription to manage.
+      </div>
+    </details>
 
-  <h2>Can I track my equipment?</h2>
-  <p>Yes. From the Sessions tab, tap "Equipment" in the top-left to add telescopes, cameras, mounts, eyepieces, and filters with full optical and sensor specs. Once added, equipment appears as quick-fill chips in the Calculator (focal length, sensor size, pixel pitch) and as a picker on every capture log.</p>
+    <details>
+      <summary>Why does the app need my location?</summary>
+      <div class="faq-answer">
+        AstroTool uses your location solely to calculate the positions of stars, planets, the Moon, and the Sun as seen from where you are. This calculation happens entirely on your device — your location is never sent anywhere. You can deny location access and the app will use a default location, though accuracy will be reduced.
+      </div>
+    </details>
 
-  <h2>How do I copy coordinates or calculator results?</h2>
-  <p>On a catalog object detail, tap the copy icon in the top-left toolbar to put the RA/Dec on your clipboard. In the Calculator, each card has a "Copy" button that writes the formatted result (FOV, exposure times) to the clipboard for pasting into a planetarium app or capture software.</p>
+    <details>
+      <summary>The sky map doesn't match the real sky — what's wrong?</summary>
+      <div class="faq-answer">
+        A few things to check: make sure location access is enabled in iOS Settings → Privacy & Security → Location Services → AstroTool. If you're indoors, the compass may be off — try tapping the north arrow button to re-lock tracking, or step outside. The sky map updates in real time, so the view is always calculated for the current moment.
+      </div>
+    </details>
 
-  <h2>Why is my integration time showing as zero?</h2>
-  <p>Integration is computed from exposure seconds × sub count. If you logged an object without filling in both fields it won't contribute to the session's total. Open the object from the session detail to fill them in.</p>
+    <details>
+      <summary>How accurate are the twilight and rise/set times?</summary>
+      <div class="faq-answer">
+        All times are calculated using standard astronomical algorithms based on your GPS coordinates and the current date. Accuracy is within about one minute for most locations. Times are shown in your local time zone.
+      </div>
+    </details>
 
-  <h2>How do I see the welcome screen again?</h2>
-  <p>Delete and reinstall the app. The onboarding flow is shown once on first launch and remembered after that.</p>
+    <details>
+      <summary>Can I use AstroTool without an internet connection?</summary>
+      <div class="faq-answer">
+        Yes — entirely. All sky calculations, the catalog, the planner, the calculator, and the session logger work completely offline. An internet connection is only required to complete an in-app purchase.
+      </div>
+    </details>
 
-  <hr>
+    <details>
+      <summary>How do I log a session?</summary>
+      <div class="faq-answer">
+        Tap the <strong>Sessions tab</strong> (requires Premium) and tap the <strong>+</strong> button to create a new session. Enter the date, location, Bortle scale, seeing, and transparency. Once the session is created, tap it to open the detail view and tap <strong>Add Object</strong> to log individual captures with exposure settings, sub count, gain, filter, and equipment.
+      </div>
+    </details>
 
-  <p><a href="privacy.html">Privacy Policy</a></p>
+    <details>
+      <summary>How do I add my telescope or camera to the Calculator?</summary>
+      <div class="faq-answer">
+        Go to the <strong>Sessions tab → Equipment</strong> (top-left button) and add your gear there. Once saved, your telescopes and cameras appear as quick-fill chips at the top of the FOV Calculator — tap them to auto-populate your focal length and sensor specs.
+      </div>
+    </details>
 
-  <footer>© 2026 Luciano Cavazos</footer>
+    <details>
+      <summary>I found a bug. How do I report it?</summary>
+      <div class="faq-answer">
+        Email us at <a href="mailto:info@theastromanual.com">info@theastromanual.com</a> with a description of what happened, what you expected, and your iOS version (Settings → General → About). Screenshots are always helpful.
+      </div>
+    </details>
+
+    <details>
+      <summary>Will AstroTool come to Android?</summary>
+      <div class="faq-answer">
+        An Android version is planned. No release date yet — follow updates at <a href="mailto:info@theastromanual.com">info@theastromanual.com</a>.
+      </div>
+    </details>
+
+  </div>
+
+</main>
+
+<footer>
+  © 2026 AstroTool &nbsp;·&nbsp;
+  <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+  <a href="mailto:info@theastromanual.com">info@theastromanual.com</a>
+</footer>
+
 </body>
 </html>
