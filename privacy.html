@@ -1,136 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AstroTool – Privacy Policy</title>
-  <style>
-    body { font-family: -apple-system, sans-serif; max-width: 680px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; line-height: 1.7; }
-    h1 { font-size: 1.8rem; margin-bottom: 0.2em; }
-    h2 { font-size: 1.1rem; margin-top: 2em; border-bottom: 1px solid #eee; padding-bottom: 4px; }
-    p, li { font-size: 0.97rem; color: #333; }
-    a { color: #0066cc; }
-    table { width: 100%; border-collapse: collapse; margin: 1em 0; font-size: 0.93rem; }
-    th { text-align: left; border-bottom: 2px solid #ddd; padding: 6px 8px; }
-    td { padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; }
-  </style>
-</head>
-<body>
-
-  <h1>AstroTool Privacy Policy</h1>
-  <p><em>Last updated: May 23, 2026</em></p>
-
-  <p>AstroTool is an astronomy planning and session logging app for iOS.
-  This policy explains exactly what data the app accesses, what it stores,
-  and what — if anything — leaves your device.</p>
-
-  <h2>What AstroTool Does</h2>
-  <p>AstroTool helps you plan observing sessions, log your captures, manage your
-  equipment, browse a catalog of 284 deep sky objects and 63 double stars,
-  and track upcoming sky events. All astronomical calculations (moon phase,
-  twilight times, object altitude, rise and set times, planet positions) run
-  entirely on your device using standard algorithms. No internet connection
-  is required for any of this.</p>
-
-  <h2>Data We Access</h2>
-
-  <table>
-    <tr>
-      <th>Data</th>
-      <th>Why</th>
-      <th>Leaves your device?</th>
-    </tr>
-    <tr>
-      <td><strong>Location</strong> (while app is open)</td>
-      <td>Used on-device to calculate twilight times, object altitudes, moon rise/set, and rise/set times for your specific position on Earth.</td>
-      <td>No — never transmitted anywhere.</td>
-    </tr>
-    <tr>
-      <td><strong>Device motion &amp; compass</strong></td>
-      <td>Used by the Sky Map to orient the view based on where you point your phone, and to display a live compass heading. Processed locally in real time.</td>
-      <td>No — never transmitted anywhere.</td>
-    </tr>
-    <tr>
-      <td><strong>Notifications</strong> (optional)</td>
-      <td>If you enable alerts on the Events screen, the app schedules local notifications on your device for upcoming astronomical twilight and meteor shower peaks. All scheduling is done locally; no server is involved.</td>
-      <td>No — local notifications only, no remote push.</td>
-    </tr>
-    <tr>
-      <td><strong>Object images</strong></td>
-      <td>When you view a deep sky object, AstroTool fetches a thumbnail image from Wikimedia Commons (a public, non-profit media repository). The request contains no personal data — only the name of the image file. Images are cached on your device for future offline use.</td>
-      <td>The image filename only, sent to Wikimedia Commons' public CDN. No user data is included.</td>
-    </tr>
-  </table>
-
-  <h2>Data You Create</h2>
-  <p>AstroTool stores the following on your device only, using Apple's SwiftData framework (local SQLite database):</p>
-  <ul>
-    <li>Observation sessions — date, location name, Bortle scale, seeing, transparency, notes</li>
-    <li>Logged objects — target name, exposure details, sub count, gain, filter, equipment, rating, notes</li>
-    <li>Target schedule items — planned captures with times and parameters</li>
-    <li>Equipment library — telescopes, cameras, mounts, eyepieces, filters</li>
-    <li>Catalog favorites</li>
-    <li>Session plan checklists</li>
-  </ul>
-  <p>None of this data is transmitted to us or any third party. It is never uploaded to a server, synced to a cloud service, or shared in any way unless you explicitly choose to do so (see "Sharing &amp; Siri" below).</p>
-
-  <h2>Sharing &amp; Siri</h2>
-  <p>AstroTool integrates with a few iOS system features. Each is user-initiated
-  and processes data on-device:</p>
-  <ul>
-    <li><strong>Session sharing.</strong> The share button on a session detail
-        produces a plain-text summary of that session and hands it to the iOS
-        share sheet. You choose where it goes (Messages, Mail, Notes, etc.).
-        AstroTool does not transmit anything itself.</li>
-    <li><strong>Clipboard.</strong> The copy buttons on the catalog detail view
-        and calculator (coordinates, field of view, exposure values) write the
-        selected text to your device's clipboard so you can paste it into
-        another app.</li>
-    <li><strong>Siri &amp; Shortcuts.</strong> AstroTool exposes two on-device
-        Siri shortcuts: "Get tonight's targets" and "Get twilight times."
-        Both compute their answers entirely on your device. Apple's Siri
-        handles the voice recognition itself, under Apple's privacy policy.</li>
-  </ul>
-
-  <h2>What We Do Not Collect</h2>
-  <ul>
-    <li>No personal information (name, email, phone number)</li>
-    <li>No account or sign-in</li>
-    <li>No analytics or usage tracking</li>
-    <li>No advertising identifiers</li>
-    <li>No crash reports sent to external services</li>
-    <li>No data sold, rented, or shared with any third party</li>
-  </ul>
-
-  <h2>Third-Party Services</h2>
-  <p>The only external service AstroTool communicates with is
-  <a href="https://commons.wikimedia.org">Wikimedia Commons</a>, solely to
-  fetch publicly available deep sky object images. Wikimedia's own privacy
-  policy applies to those requests. AstroTool contains no third-party
-  analytics, advertising, or crash reporting SDKs.</p>
-
-  <h2>Image Credits</h2>
-  <p>Deep sky object images are sourced from Wikimedia Commons and are credited
-  to their respective creators — including NASA, ESA, Hubble Space Telescope,
-  ESO, JWST, and individual astrophotographers — as displayed in the image
-  credit overlay within the app. Images are used under their respective public
-  domain or Creative Commons licenses.</p>
-
-  <h2>Children's Privacy</h2>
-  <p>AstroTool does not collect any personal information from anyone, including
-  children under 13.</p>
-
-  <h2>Data Deletion</h2>
-  <p>All data created in AstroTool is stored locally on your device. You can
-  delete it at any time by deleting the app.</p>
-
-  <h2>Changes to This Policy</h2>
-  <p>If this policy is updated, the revised version will be posted at this URL
-  with a new date at the top.</p>
-
-  <h2>Contact</h2>
-  <p>Questions about this policy? Email:
-  <a href="mailto:info@theastromanual.com">info@theastromanual.com</a></p>
-
-</body>
-</html>
+ASTROTOOL
+Privacy Policy
+Effective date: May 2026  ·  Last updated: May 2026
+Short version: AstroTool collects nothing. No account, no tracking, no analytics, no ads. Your location is used only on-device to calculate the sky above you and is never transmitted anywhere. Your session data lives only on your device.
+1. Information We Collect
+AstroTool does not collect, store, or transmit any personal information. Specifically:
+		No name, email address, or account is required or requested
+		No usage analytics or crash reporting services are integrated
+		No advertising SDKs are included
+		No third-party tracking of any kind is present in the app
+2. Location Data
+AstroTool requests access to your device location for one purpose only: to calculate the positions of stars, planets, the Sun, and Moon as seen from where you are standing.
+		Location is used entirely on-device — it is never sent to any server
+		Location is never stored beyond the current app session
+		You can deny location access; the app will use a default location with reduced accuracy
+AstroTool uses iOS location permission level When In Use. It never requests background location access.
+3. Data You Create
+The Session Logger lets you record observing sessions, capture details, and equipment profiles. This data:
+		Is stored only on your device using Apple's SwiftData framework
+		Is never uploaded, synced to any server, or accessible by us
+		Can be exported as plain text at any time using the share button in the Session Logger
+		Is deleted when you delete the app
+4. In-App Purchases
+AstroTool offers a one-time in-app purchase to unlock premium features. All purchase transactions are handled entirely by Apple through the App Store. We do not process, store, or have access to any payment information. Apple's privacy policy governs all purchase-related data.
+5. Notifications
+AstroTool may request permission to send local notifications for upcoming astronomical events (meteor showers, oppositions, conjunctions, moon phases). These notifications are:
+		Scheduled entirely on-device — no server involvement
+		Never used for marketing or promotional purposes
+		Fully controllable via iOS Settings → Notifications → AstroTool
+6. Children's Privacy
+AstroTool does not knowingly collect any information from anyone, including children under 13. Since no data is collected at all, there is nothing to distinguish by age.
+7. Changes to This Policy
+If this privacy policy changes materially, the effective date at the top of this page will be updated. We will never introduce data collection, advertising, or tracking without clearly disclosing it here first.
+8. Contact
+Questions about this privacy policy? Contact us at info@theastromanual.com.
+© 2026 AstroTool  ·  Support
